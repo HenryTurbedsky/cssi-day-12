@@ -18,9 +18,31 @@ window.onload = event => {
 
 const getNotes = (userId) => {
     const noteRef = firebase.database().ref(`users/${userId}/notes`)
+
+    noteRef.on("value", (snapshot) => {
+        const data = snapshot.val()
+        renderDataAsHtml(data)
+    })
 }
 
 
+const renderDataAsHtml = (data) => {
+    let cards =``;
+    for (const noteItem in data) {
+        const note = data[noteItem]
+        
+    }
+
+}
+
+
+const createCard = (note) => {
+    return `
+        
+
+
+    `
+}
 
 
 
